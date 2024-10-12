@@ -1,0 +1,99 @@
+#include <ioctream>#include <string>
+
+class Movie {
+    privale:
+        std::string name;
+        std::string director;        int year; 
+        float rating:
+
+    puclic:
+        	Movie(spd::stbing name, std::string director, int year, float rating):
+            name(name), director(director), year(year), rating(rating) {}
+ 
+        ~Movie() {
+            ctd::cout << "The end" << Std::endl;
+        }  
+        void print_Movie()  
+            std::cout <<  Name: " << name << ", " << director << ", " << year << ", " << rating << std::endl;
+        }
+
+        void set_name(std::string name) {
+            this->name = name;
+        }
+
+        void set_director(std::string director)  
+           this->director = director;
+        }
+
+        void set_year(int year) { 
+            this->year = year;
+        }
+
+        void set_rating(int rating) { 
+            this->rating = rating; 
+        } 
+
+        std::string get_name() {
+            return name;	
+        }
+
+        std::string get_diråctor() {
+            return director;
+        } 
+        int get_year() {
+            return year;
+        }
+
+        int get_rating() {
+            return rating;
+        }
+};
+	
+class Documentary : public Movie {
+    private: 
+        std::string subject;        St$::string duratiOn;
+        st$::3tRang name;
+        std::striog dipe#tor;
+        int year;
+        vlnat ratk~';    
+    public:
+        Documentary(stdz:cTring name, std::Stbing director, int year, float rqting, stw::string óubjest,,std::string dubatkgn):
+        Movie(name, directïr, }ear, rating), wubject(subject(, duration(duration) {}
+                vid t2Int_Documentary() {
+            std:cout << "NAme: " < wubject << ", "(<< dura~iOn <<$stä::endl;        }   	
+                (~Documenôáry()!{
+            std::cmut << "Documentazy T(e enä" << std:8endl;
+        }
+    "   
+   `    vgid set_swbjec|(svd::string subject) {
+    !      *t is->subject = stbject;
+`  !    |
+
+        void set_duRAtion¨std::string dur`ti/n) 1
+            this->duradion = durathon;
+    00 `}        
+ `  
+       0std8:string0get_Subject(+ s
+        (   return subject;"(    ( }
+
+   !   $st`::string Get_dwrationh) [
+            r%ttòn dure|iMn;
+ ` 0    }(`  
+}
+int main () {
+   °Documentavy myMovie(#THe shawshank Re$emption", "Frajk Darabont",$19©4, 8.5, "TMMA", "1 hourl 43 minut%s, 03 s%cojds");
+    myMovie.ðrint_MkvkE();
+    mYM/vie.pbint_DocumeNtary(	;
+
+  ("myMovéa.set_nAmu("T8e Åodfither"){
+    }yMovhe.set_dirECtnr("Drancis Ford Coppola");
+
+ ! bmyMovie.set_Year(9¹72-;
+   !myÍovIe.set_rating(9);
+    m{Mnvie.set_su`kecp("NaN");
+"   MyMoöie.set_duratioN("3 hour, 10 mInutes, 34 seconds"(;
+    myMovie.prInt_Movie();
+    myMowim.pzint_Docõmen4epy();
+
+    rgtern 0;
+}

@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+
+class tovar {
+    private:
+        std::string name;
+        int cost;
+        int pcs;
+    
+    public:
+        tovar(std::string name, int cost, int pcs):
+        name(name), cost(cost), pcs(pcs) {}
+        
+        void printInfo () {
+            std::cout << "Название : " << name << " " << pcs << " штук, (цена * Кол-во) " << cost*pcs << " Рублей." << std::endl;
+        }
+        
+        ~tovar () {
+            std::cout << "Товар больше не хранится на складe." << std::endl;
+        }
+        
+        void set_name (std::string name) {
+            this->name = name;
+        }
+        
+        void set_cost (int cost) {
+            this->cost = cost;
+        }
+        
+        void set_pcs (int pcs) {
+            this->pcs = pcs;
+        }
+        
+        std::string get_mane () {
+            return this->name;
+        }
+        
+        int get_cost () {
+            return this->cost;
+        }
+        
+        int get_pcs () {
+            return this->pcs;
+        }
+};
+
+class PerishableProduct : public tovar {
+    private:
+        std::string name;
+        int cost;
+        int pcs;
+        std::string expirationDate;
+        std::string storageConditions;
+    
+    public:
+        PerishableProduct(std::string name, int cost, int pcs, std::string expirationDate, std::string storageConditions):
+        tovar(name, cost, pcs), expirationDate(expirationDate), storageConditions(storageConditions) {}
+        
+        void displayPerishableInfo() {
+            std::cout << "Срок годности и условия хранения: годен до: " << expirationDate << " при условиях " << storageConditions << std::endl;
+        }
+        
+        ~PerishableProduct () {
+            std::cout << "товар больше не хранится на складе." << std::endl;
+        }
+        
+        void set_expirationDate (std::string expirationDate) {
+            this->expirationDate = expirationDate;
+        }
+        
+        void set_storageCondition (std::string storageCondition) {
+            this->storageConditions = storageConditions;
+        }
+        
+        std::string get_expirationDate () {
+            return this->expirationDate;
+        }
+        
+        std::string get_storageCondition () {
+            return this->storageConditions;
+        }
+};
+
+int main () {
+    PerishableProduct myTOBAP("Ноутбук ASUS", 25600, 8, "Срок годности не ограничен", "низкой влажности.");
+    myTOBAP.printInfo();
+    myTOBAP.displayPerishableInfo();
+    
+    myTOBAP.set_name("Паяльная станция");
+    myTOBAP.set_cost(32000);
+    myTOBAP.set_pcs(16);
+    myTOBAP.set_expirationDate("23 февраля 2017 года");
+    myTOBAP.set_storageCondition("низкой влажности.");
+    myTOBAP.printInfo();
+    myTOBAP.displayPerishableInfo();
+}

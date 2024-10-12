@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+
+class Book {
+    private:
+        std::string author;
+        std::string name;
+        int year;
+        float n_str;
+
+    public:
+        Book(std::string author, std::string name, int year, float n_str):
+            author(author), name(name), year(year), n_str(n_str) {} 
+            
+        void printBook() {
+            std::cout << "Info: " << author << ", " << name << ", " << n_str << ", " << year <<std::endl;
+        }
+        
+        ~Book() {
+            std::cout << "Book deleted" << std::endl;
+        }
+
+        void set_author(std::string author) {
+            this->author = author;
+        }
+
+        void set_name(std::string name) {
+            this->name = name;
+        }    
+
+        void set_year(int year) {
+            this->year = year;
+        }
+
+        void set_n_str(float n_str) {
+            this->n_str = n_str;
+        }
+
+        std::string get_author() {
+            return this->author;
+        }
+
+        std::string get_name() {
+            return this->name;
+        }
+
+        int get_year() {
+            return this->year;
+        }
+
+        float get_n_str() {
+            return this->n_str;
+        }
+};
+
+class Textbook : public Book {
+    private:
+        std::string subject;
+        std::string author;
+        std::string name;
+        int edition;
+        int year;
+        float n_str;
+        
+    public:
+        Textbook(std::string author, std::string name, int year, float n_str, std::string subject, int edition):
+        Book(author, name, year, n_str), subject(subject), edition(edition) {}
+        
+        void TextbookInfo() {
+            std::cout << subject << ", " << edition << " поколение" << std::endl;
+        }
+        
+        ~Textbook () {
+            std::cout << "Textbook has been deleted. " << std::endl;
+        }
+        
+        void set_subject(std::string subject) {
+            this->subject = subject;
+        }
+
+        void set_edition(int edition) {
+            this->edition = edition;
+        }
+
+        std::string get_subject() {
+            return this->subject;
+        }
+
+        int get_edition() {
+            return this->edition;
+        }        
+};
+
+int main() {
+    Textbook myBook("Александр Пушкин", "Евгений Онегин", 2014, 301, "Литература", 3);
+    myBook.printBook();
+    myBook.TextbookInfo();
+
+    myBook.set_author("Александр Пушкин");
+    myBook.set_name("Мертвые души");
+    myBook.set_year(1442);
+    myBook.set_n_str(1031);
+    myBook.set_subject("Какой-то предмет");
+    myBook.set_edition(2);
+    myBook.printBook();
+    myBook.TextbookInfo();
+    return 0;
+}
